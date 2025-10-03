@@ -30,6 +30,15 @@ public:
 		}
 	}
 	
+    void push_back(int val){
+        Node* newNode = new Node(val);
+        if(head == NULL){
+            head = tail = NULL;
+        }else{
+            tail->next = newNode;
+            tail = newNode;
+        }
+    }
 	void Print(){
 		Node* temp = head;
 		while(temp!=NULL){
@@ -46,7 +55,7 @@ int main(){
 	LL.Push_Front(10);
 	LL.Push_Front(20);
 	LL.Push_Front(30);
-	
+	LL.push_back(40);
 	LL.Print();
     return 0;
 }
