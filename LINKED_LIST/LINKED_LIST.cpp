@@ -40,6 +40,18 @@ public:
             tail = newNode;
         }
     } 
+
+	void pop(){
+		if(head == NULL){
+			head = tail = NULL;
+			return;
+		}else{
+			Node* temp = head;
+			head = head->next;
+			temp->next = NULL;
+			delete(temp);
+		}
+	}
 	void Print(){
 		Node* temp = head;
 		while(temp!=NULL){
@@ -59,5 +71,7 @@ int main(){
 	LL.push_back(40);
 	LL.Print();
 
+	LL.pop();
+	LL.Print();
         return 0;
 }
