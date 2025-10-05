@@ -41,7 +41,7 @@ public:
         }
     } 
 
-	void pop(){
+	void pop_front(){
 		if(head == NULL){
 			head = tail = NULL;
 			return;
@@ -51,6 +51,51 @@ public:
 			temp->next = NULL;
 			delete(temp);
 		}
+	}
+
+	void pop_back(){
+		if(head == NULL){
+			cout<<"List is Empty !"<<endl;
+			return;
+		}else{
+			Node* temp = head;
+			while(temp->next!=tail){
+				temp = temp->next;
+			}
+			temp->next = NULL;
+			delete tail;
+			tail = temp;
+		}
+	}
+
+	void insert_in_Middle(int val , int pos){
+		Node* temp = head;
+		if(pos < 0){
+			cout<<"Invalid index "<<endl;
+		}
+		if(pos == 0){
+			Push_Front(val);
+		}
+
+		for(int i = 0 ; i < pos-1 ; i++){
+			temp = temp->next;
+		}
+		Node* newNode = new Node(val);
+		newNode = temp->next;
+		temp->next = newNode;
+	}
+
+	int search(int key){
+		Node* temp = head;
+		int idx = 0;
+		while(temp!=NULL){
+			if(temp->data == key){
+				return idx;
+			}
+			temp = temp->next;
+			idx++;
+		}
+		return -1;
 	}
 	void Print(){
 		Node* temp = head;
@@ -65,13 +110,27 @@ public:
 int main(){
 	
 	List LL;
-	LL.Push_Front(10);
-	LL.Push_Front(20);
-	LL.Push_Front(30);
-	LL.push_back(40);
+	LL.Push_Front(3);
+	LL.Push_Front(2);
+	LL.Push_Front(1);
+	LL.Print();
+	
+	cout<<"value is found at index = "<<LL.search(2)<<endl;
+
+	LL.push_back(4);
+	
 	LL.Print();
 
-	LL.pop();
+	LL.pop_front();
 	LL.Print();
+
+	LL.pop_back();
+	LL.Print();
+
+	LL.insert_in_Middle(1,3);
+	LL.Print();
+
+	
+
         return 0;
 }
