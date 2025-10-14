@@ -48,15 +48,15 @@ class DoublyList{
         }
     }
 
-    // void Pop_Front(){
-    //     Node* temp = head;
-    //     head = head->next;
-    //     if(head != NULL){
-    //         head->prev = NULL;
-    //         temp->next = NULL;
-    //         delete temp;
-    //     }
-    // }
+    void Pop_Front(){
+        Node* temp = head;
+        head = head->next;
+        if(head != NULL){
+            head->prev = NULL;
+            temp->next = NULL;
+            delete temp;
+        }
+    }
 
     void Print(){
         Node* temp = head;
@@ -78,8 +78,8 @@ int main(){
     dll.Push_Back(200);
     dll.Print();
 
-    // dll.Pop_Front();
-    // cout<<"50 are removed from the list "<<endl;
-    // dll.Print();
+    dll.Pop_Front();
+    cout<<"50 are removed from the list "<<endl;
+    dll.Print();
     return 0;
 }

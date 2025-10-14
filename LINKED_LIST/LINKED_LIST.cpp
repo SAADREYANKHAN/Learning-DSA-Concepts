@@ -25,11 +25,14 @@ public:
 		Node* newNode = new Node(val);
 		if(head == NULL){
 			head = tail = newNode;
-		}else{
+		}
+		else{
 			newNode->next = head;
 			head = newNode;
 		}
 	}
+	
+
 	
     void push_back(int val){
         Node* newNode = new Node(val);
@@ -114,8 +117,14 @@ int main(){
 	LL.Push_Front(2);
 	LL.Push_Front(1);
 	LL.Print();
-	
-	cout<<"value is found at index = "<<LL.search(2)<<endl;
+	int key = 2;
+	int index = LL.search(key);
+
+    if (index != -1) {
+        cout << "Value " << key << " found at index " << index << endl;
+    } else {
+        cout << "Value " << key << " not found in list." << endl;
+    }
 
 	LL.push_back(4);
 	
@@ -129,8 +138,6 @@ int main(){
 
 	LL.insert_in_Middle(1,3);
 	LL.Print();
-
-	
 
         return 0;
 }
