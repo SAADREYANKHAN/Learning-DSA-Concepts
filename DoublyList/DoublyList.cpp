@@ -36,17 +36,17 @@ class DoublyList{
         }
     }
 
-    // void Push_Back(int val){
-    //     Node* newNode = new Node(val);
-    //     if(head == NULL){
-    //         head = tail = newNode;
-    //     }else{
+    void Push_Back(int val){
+        Node* newNode = new Node(val);
+        if(head == NULL){
+            head = tail = newNode;
+        }else{
             
-    //         tail->next = newNode;
-    //         newNode->prev = tail;
-    //         tail = newNode;
-    //     }
-    // }
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+        }
+    }
 
     // void Pop_Front(){
     //     Node* temp = head;
@@ -75,7 +75,7 @@ int main(){
     dll.Push_Front(30);
     dll.Push_Front(40);
     dll.Push_Front(50);
-   // dll.Push_Back(200);
+    dll.Push_Back(200);
     dll.Print();
 
     // dll.Pop_Front();
