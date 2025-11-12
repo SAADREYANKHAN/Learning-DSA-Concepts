@@ -37,6 +37,14 @@ class BST{
             return key;
         }
 
+        void inorder(Node* node){
+            if(node == NULL){
+                return;
+            }
+            inorder(node->left);
+            cout<<node->data<<endl;
+            inorder(node->right);
+        }
         void display(Node* key){
             if(key == NULL){
                 return;
@@ -59,5 +67,8 @@ int main(){
 
     cout<<"display "<<endl;
     tree.display(tree.root);
+
+    cout<<endl;
+    tree.inorder(tree.root);
     return 0;
 }
