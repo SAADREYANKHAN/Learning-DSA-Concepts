@@ -41,6 +41,21 @@ public:
         return key;
     }
 
+        Node* search(int value , Node* key){
+            if(key == NULL){
+                return NULL;
+            }
+            if(value == key->data){
+                cout<<value<<" Node found"<<endl;
+                return key;
+            }
+            else if(value <  key->data){
+                return search(value,key->Lchild);
+            }else{
+                return search(value,key->Rchild);
+            }
+            
+        }
     void Display(Node* key){
         if(key == NULL){
          
@@ -62,19 +77,29 @@ int main()
     BT tree;
     tree.root = tree.insert(10,tree.root);
     tree.root = tree.insert(5,tree.root);
-    tree.root = tree.insert(4,tree.root);
+    tree.root = tree.insert(6,tree.root);
     tree.root = tree.insert(3,tree.root);
-    tree.root = tree.insert(2,tree.root);
-    tree.root = tree.insert(1,tree.root);
-    tree.root = tree.insert(11,tree.root);
-    tree.root = tree.insert(12,tree.root);
+    tree.root = tree.insert(4,tree.root);
+    tree.root = tree.insert(15,tree.root);
+    tree.root = tree.insert(18,tree.root);
     tree.root = tree.insert(13,tree.root);
-    tree.root = tree.insert(14,tree.root);
-    cout<<tree.root->data<<endl;
-    cout<<tree.root->Lchild->data<<endl;
-    cout<<tree.root->Rchild->data<<endl;
     //DIsplay punction to display the tree elements;
     tree.Display(tree.root);
-    
+    cout<<endl;
+    //search function;
+
+    int value;
+    cout<<"Enter the value for search :";
+    cin>>value;
+
+    Node* result = tree.search(value, tree.root);
+
+if(result != NULL){
+    cout<< " Node "<<value<<" is found in tree." << endl;
+}
+else{
+    cout<< " Node "<<value<<" is NOT found in tree." << endl;
+}
     return 0;
 }
+
